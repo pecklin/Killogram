@@ -63,10 +63,7 @@ public class MainFrame {
 		JPanel startpage = new JPanel();
 		startpage.setBounds(10, 0, 1200, 1000);
 		
-		JLabel orderDir1 = new JLabel("Delivering");
-		JLabel orderDir2 = new JLabel("Packing");
-		
-		
+		JLabel orderDir = new JLabel("Delivering");
 		
 		ImageIcon delimg = new ImageIcon("./image/delv.jpg");
 		JButton delivery = new JButton(delimg);

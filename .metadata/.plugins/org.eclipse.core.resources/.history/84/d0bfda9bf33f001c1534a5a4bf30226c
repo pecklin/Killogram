@@ -63,19 +63,13 @@ public class MainFrame {
 		JPanel startpage = new JPanel();
 		startpage.setBounds(10, 0, 1200, 1000);
 		
-		JLabel orderDir1 = new JLabel("Delivering");
-		JLabel orderDir2 = new JLabel("Packing");
-		
-		
-		
-		ImageIcon delimg = new ImageIcon("./image/delv.jpg");
-		JButton delivery = new JButton(delimg);
+		JButton delivery = new JButton();
+		delivery = new ImageIcon("../image/배달이미지.jpg")
 		delivery.setFont(new Font("MS UI Gothic", Font.PLAIN, 55));
 		delivery.setBounds(709, 469, 354, 290);
 		startpage.add(delivery);
 
-		ImageIcon packimg = new ImageIcon("./image/takot.jpg");
-		JButton packaging = new JButton(packimg);
+		JButton packaging = new JButton("packaging");
 		packaging.setFont(new Font("MS UI Gothic", Font.PLAIN, 55));
 		packaging.setBounds(79, 122, 354, 290);
 		startpage.add(packaging);
