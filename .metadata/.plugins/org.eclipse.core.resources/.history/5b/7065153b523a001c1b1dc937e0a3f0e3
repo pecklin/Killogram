@@ -1,0 +1,27 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class Main extends JFrame{
+	public static void main(String[] args) {
+		JFrame frame = new JFrame();	
+		JPanel panel = new JPanel();
+		JLabel label = new JLabel("Some text");
+		JButton btn = new JButton("Click me");
+		JTextArea text = new JTextArea();
+		JPanel btnPanel = new JPanel();
+		
+		panel.setLayout(new BorderLayout());
+		
+		panel.add(label, BorderLayout.NORTH);
+		panel.add(btn, BorderLayout.WEST);
+		panel.add(text, BorderLayout.CENTER);
+		
+		frame.add(panel);	
+		frame.setResizable(false);
+		frame.setVisible(true);
+		frame.setSize(1200, 1000);
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}
+

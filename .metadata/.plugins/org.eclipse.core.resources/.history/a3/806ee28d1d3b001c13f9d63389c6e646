@@ -1,0 +1,15 @@
+import javax.swing.JFrame;
+
+public class login extends JFrame{
+	login() {
+		setVisible(true);
+		setSize(600.400);
+		setLocalRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		set
+	}
+	public static void main(String args[]) {
+		new login();
+	}
+}

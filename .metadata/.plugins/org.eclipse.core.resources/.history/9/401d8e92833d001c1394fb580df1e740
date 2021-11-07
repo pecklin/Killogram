@@ -1,0 +1,7 @@
+import java.awt.Image;
+
+import javax.swing.JPanel;
+
+public class backgound extends JPanel{
+	private Image img;
+}

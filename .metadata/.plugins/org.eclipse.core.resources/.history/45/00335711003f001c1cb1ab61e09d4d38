@@ -1,0 +1,133 @@
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class MainFrame {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MainFrame window = new MainFrame();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public MainFrame() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(0, 0, 1200, 1000);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		frame.setLocationRelativeTo(null);
+
+		
+		JPanel SelectMenu = new JPanel();
+		SelectMenu.setBounds(0, 0, 1200, 1000);
+		SelectMenu.setLayout(new GridLayout(9, 1));
+		SelectMenu.add(new JButton("1"));
+		SelectMenu.add(new JButton("2"));
+		SelectMenu.add(new JButton("3"));
+		SelectMenu.add(new JButton("4"));
+		SelectMenu.add(new JButton("5"));
+		SelectMenu.add(new JButton("6"));
+		SelectMenu.add(new JButton("7"));
+		SelectMenu.add(new JButton("8"));
+		SelectMenu.add(new JButton("9"));
+		SelectMenu.add(new JButton("10"));
+		SelectMenu.add(new JButton("11"));
+		SelectMenu.add(new JButton("12"));
+		SelectMenu.add(new JButton("13"));
+		SelectMenu.add(new JButton("14"));
+		frame.add(SelectMenu);
+		SelectMenu.setVisible(false);
+		
+		JPanel startpage = new JPanel();
+		startpage.setBounds(10, 0, 1200, 1000);
+		frame.getContentPane().add(startpage);
+		startpage.setLayout(null);
+		
+		
+		JButton backbtn = new JButton("back");
+		
+		backbtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				startpage.setVisible(true);
+				SelectMenu.setVisible(false);
+			}
+		});
+		
+		backbtn.setBounds(132, 880, 91, 21);
+		SelectMenu.add(backbtn);
+		
+//		JLabel lblNewLabel = new JLabel("hi");
+//		lblNewLabel.setBounds(633, 5, 30, 42);
+//		lblNewLabel.setFont(new Font("MS UI Gothic", Font.PLAIN, 41));
+//		SelectMenu.add(lblNewLabel);
+	
+//		background backg = new background(new ImageIcon("./image/background.jpg").getImage());
+//		frame.getContentPane().add(backg);
+//		frame.pack();
+//		
+		JButton delivery = new JButton("delivery");
+		delivery.setFont(new Font("MS UI Gothic", Font.PLAIN, 55));
+		delivery.setBounds(709, 469, 354, 290);
+		startpage.add(delivery);
+		
+		JButton packaging = new JButton("packaging");
+		packaging.setFont(new Font("MS UI Gothic", Font.PLAIN, 55));
+		packaging.setBounds(79, 122, 354, 290);
+		startpage.add(packaging);
+		
+		
+		delivery.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				startpage.setVisible(false);
+				SelectMenu.setVisible(true);
+			}
+			
+		});
+		
+		packaging.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				startpage.setVisible(false);
+				SelectMenu.setVisible(true);
+			}
+			
+		});
+		
+		
+		
+	}
+}

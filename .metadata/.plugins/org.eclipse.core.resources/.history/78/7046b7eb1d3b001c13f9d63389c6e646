@@ -1,0 +1,21 @@
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class login extends JFrame{
+	login() {
+		JPanel panel = new JPanel();
+		JLabel label = new JLabel("ID");
+		JTextField textID = new JTextField(20);
+		
+		
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(600, 400);
+		setLocationRelativeTo(null);
+		setResizable(false);
+	}
+	public static void main(String args[]) {
+		new login();
+	}
+}
