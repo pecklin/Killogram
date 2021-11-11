@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -12,8 +13,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MainFrame {
-	public int[] menu_num = {0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+public class MainFrame extends JFrame {
+	public int[] menu_num = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+	public int[] rec = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 	private JFrame frame;
 	public JCheckBox btn1;
 	public JCheckBox btn2;
@@ -30,6 +32,9 @@ public class MainFrame {
 	public JCheckBox btn13;
 	public JCheckBox btn14;
 	
+	public Font font = new Font("HS유지체",Font.PLAIN , 30);
+	public Font titleFont = new Font("HS유지체", Font.BOLD, 60);
+	
 	/**
 	 * Launch the application.
 	 */
@@ -43,8 +48,56 @@ public class MainFrame {
 					e.printStackTrace();
 				}
 			}
-		});
+		}
+		);
 	}
+	
+//	public void recommend(int menu) {
+//		switch(menu) {
+//		case 1:
+//			rec[0] = 1;
+//			break;
+//		case 2:
+//			rec[1] = 3;
+//			break;
+//		case 3:
+//			rec[2] = 5;
+//			break;
+//		case 4:
+//			rec[3] = 7;
+//			break;
+//		case 5:
+//			rec[4] = 9;
+//			break;
+//		case 6:
+//			rec[5] = 2;
+//			break;
+//		case 7:
+//			rec[6] = 4;
+//			break;
+//		case 8:
+//			rec[7] = 6;
+//			break;
+//		case 9:
+//			rec[8] = 8;
+//			break;
+//		case 10:
+//			rec[9] = 11;
+//			break;
+//		case 11:
+//			rec[10] = 12;
+//			break;
+//		case 12:
+//			rec[11] = 14;
+//			break;
+//		case 13:
+//			rec[12] = 13;
+//			break;
+//		case 14:
+//			rec[13] = 0;
+//			break;
+//		}
+//	}
 	
 	public class orderCheck implements ItemListener{
 		public void itemStateChanged(ItemEvent e) {
@@ -53,73 +106,76 @@ public class MainFrame {
 				{
 					System.out.println("selected");
 					menu_num[0]=1;
+					rec[0]=3;
 					
 				}
 				if(e.getItem()==btn2)
 				{
 					System.out.println("selected");
 					menu_num[1]=2;
+					rec[1]=6;
 					
 				}
 				if(e.getItem()==btn3)
 				{
 					menu_num[2]=3;
+					rec[2]=9;
 					
 				}
 				if(e.getItem()==btn4)
 				{
 					menu_num[3]=4;
-					
+					rec[3]=12;
 				}
 				if(e.getItem()==btn5)
 				{
 					menu_num[4]=5;
-					
+					rec[4]=14;
 				}
 				if(e.getItem()==btn6)
 				{
 					menu_num[5]=6;
-					
+					rec[5]=1;
 				}
 				if(e.getItem()==btn7)
 				{
 					menu_num[6]=7;
-					
+					rec[6]=2;
 				}
 				if(e.getItem()==btn8)
 				{
 					menu_num[7]=8;
-					
+					rec[7]=4;
 				}
 				if(e.getItem()==btn9)
 				{
 					menu_num[8]=9;
-					
+					rec[8]=11;
 				}
 				if(e.getItem()==btn10)
 				{
 					menu_num[9]=10;
-					
+					rec[9]=13;
 				}
 				if(e.getItem()==btn11)
 				{
 					menu_num[10]=11;
-					
+					rec[10]=5;
 				}
 				if(e.getItem()==btn12)
 				{
 					menu_num[11]=12;
-					
+					rec[11]=7;
 				}
 				if(e.getItem()==btn13)
 				{
 					menu_num[12]=13;
-					
+					rec[12]=8;
 				}
 				if(e.getItem()==btn14)
 				{
 					menu_num[13]=14;
-					
+					rec[13]=10;
 				}}
 				
 				if(e.getStateChange()==ItemEvent.DESELECTED) {
@@ -199,10 +255,12 @@ public class MainFrame {
 	public MainFrame() {
 		initialize();
 	}
+	
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(0, 0, 1200, 1000);
@@ -311,33 +369,25 @@ public class MainFrame {
 		
 		// 寃곗젣�솕硫�
 		JPanel PayScreen = new JPanel();
-		PayScreen.setBounds(0, 0, 1200, 1000);
+		PayScreen.setBounds(0, 0, 1200, 200);
 		PayScreen.setVisible(false);
 		
-		JLabel MenuList = new JLabel("Menu List");
+		JPanel selected_menu = new JPanel();
+		selected_menu.setBounds(300, 200, 300, 300);
 		
-		JLabel menu[] = new JLabel[14];
-		for(int i=0; i<14; i++)
-		{
-			if(menu_num[i]==0)
-			{
-				continue;
-			}
-			else {
-				int x = 30;
-				int y = 30;
-				menu[i] = new JLabel(menu_num[i]+" ");
-				PayScreen.add(menu[i]);
-				menu[i].setBounds(20+x*2, 20+y*2, 387, 88);
-			}
-		}
+		JPanel recommended_menu = new JPanel();
+		recommended_menu.setBounds(600, 200, 300, 300);
+		
+		JLabel MenuList = new JLabel("Menu List");
+		MenuList.setFont(titleFont);
+		
 		PayScreen.add(MenuList);
 		frame.add(PayScreen);
+//		MenuList.add(menuState);
+//		frame.add(menu_state);
 		
-		
-		
-		
-		
+		frame.add(selected_menu);
+		frame.add(recommended_menu);
 
 //		background backg = new background(new ImageIcon("./image/background.jpg").getImage());
 //		frame.getContentPane().add(backg);
@@ -377,6 +427,38 @@ public class MainFrame {
 			public void actionPerformed(ActionEvent e) {
 				SelectMenu.setVisible(false);
 				PayScreen.setVisible(true);
+			
+				JLabel menu[] = new JLabel[14];
+				JLabel recommendLabel[] = new JLabel[14];
+				for(int i=0; i<14; i++)
+				{
+					if(menu_num[i]==0)
+					{
+						continue;
+					}
+					else {
+						JLabel menuclean = new JLabel("주문 내역 : ");
+						menuclean.setFont(font);
+						selected_menu.add(menuclean);
+						
+						menu[i] = new JLabel(menu_num[i]+" ");
+						selected_menu.add(menu[i]);
+						menu[i].setFont(font);
+						menu[i].setForeground(Color.black);
+						int num = 0;
+						num = menu_num[i];
+//						recommend(num);
+						
+						JLabel recmenu = new JLabel("추천 메뉴 : ");
+						recmenu.setFont(font);
+						recommended_menu.add(recmenu);
+						
+						recommendLabel[i] = new JLabel(rec[i]+" ");
+						recommended_menu.add(recommendLabel[i]);
+						recommendLabel[i].setFont(font);
+					}
+				}
+				
 			}
 			
 		});

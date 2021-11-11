@@ -1,5 +1,0 @@
-import java.awt.Image;
-
-public class backgound {
-	private Image img;
-}
